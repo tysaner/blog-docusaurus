@@ -6,7 +6,6 @@ const config: Config = {
   title: "SITE",
   tagline: "保持学习的态度是非常酷的",
   favicon: "img/favicon.ico",
-  themes: ["@docusaurus/theme-search-algolia"],
 
   // Set the production url of your site here
   url: "https://your-docusaurus-site.example.com",
@@ -31,11 +30,7 @@ const config: Config = {
     localeConfigs: {
       // 语言配置
       en: {
-        htmlLang: "en",
-      },
-      zh: {
-        htmlLang: "zh",
-        // direction: "ltr",
+        htmlLang: "en-gb",
       },
     },
   },
