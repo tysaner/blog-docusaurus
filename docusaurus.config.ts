@@ -57,7 +57,7 @@ const config: Config = {
   themeConfig: {
     // Replace with your project's social card
     algolia: {
-      apiKey: "546346cf1ea197ab36fc29e3819717f2",
+      apiKey: "d4c00b1f5479df70aa3b9f3c83fbe113",
       indexName: "dev_test",
       appId: "SB65ZZZGW6",
     },
