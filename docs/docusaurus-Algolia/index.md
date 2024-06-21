@@ -23,14 +23,14 @@ sidebar_label: 配置Algolia全局搜索
 [Algolia官网](https://dashboard.algolia.com/) 进行注册，直接使用GitHub账号就可以直接登录。
 
 登录成功后进入控制台
-![](./images/Algolia工作台.png)
+![](./images/Algoliaworkbench.png)
 点击`Create Application`创建应用。
-![](./images/创建application.png)
+![](./images/createapplication.png)
 当出现这个界面就说明已经创应用成功了。
-![](./images/第一个应用创建成功.png)
+![](./images/fristapplication.png)
 创建成功后再建一个index。
-![](./images/创建index1.png)
-![](./images/创建index2.png)
+![](./images/createindex1.png)
+![](./images/createindex2.png)
 之后就能看到正常的index所在的页面
 >这个application就相当是于你的项目，在你的这个项目里面可以有很多个的子应用也就是你的index，可以更具体的定位。
 
@@ -159,7 +159,7 @@ winpty docker run -it --env-file=.env -e "CONFIG=$(cat ./config.json | jq -r tos
 因为是 Windows 环境，CMD 没有 cat 指令，所以用 Git Bash 取代。
 :::
 最后回到我们的`Algolia`的`Search`页面中，就可以看到我们的网站内容就被新增成功啦！！
-![](./images/爬取成功.png)
+![](./images/climbsuccess.png)
 ## 验收
 最后在我们已经上线的项目中可以进行测试
 ![](./images/testSearch.png)
