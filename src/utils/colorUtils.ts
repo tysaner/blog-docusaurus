@@ -108,9 +108,6 @@ export const updateDOMColors = (
   if (ruleToDelete >= 0) {
     styleSheet.deleteRule(ruleToDelete);
   }
-  console.log(shades, "shades");
-  console.log(getAdjustedColors(shades, baseColor));
-
   // 添加新的规则
   const newRule = `
     ${isDarkTheme ? '[data-theme="dark"]' : '[data-theme="light"]'}

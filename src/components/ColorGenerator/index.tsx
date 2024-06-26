@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import clsx from "clsx";
+import { Form, Input } from "antd";
+import styles from "./styles.module.css";
 import { useColorMode } from "@docusaurus/theme-common";
 import {
   LIGHT_PRIMARY_COLOR,
@@ -50,6 +52,7 @@ export default function ColorGenerator(): JSX.Element {
       storage.get() ?? "{}"
     ) as Partial<ColorState>;
     setInputColor(storedValues.baseColor ?? DEFAULT_PRIMARY_COLOR);
+    setBaseColor(storedValues.baseColor ?? DEFAULT_PRIMARY_COLOR);
     setBackground(storedValues.background ?? DEFAULT_BACKGROUND_COLOR);
     setShades(storedValues.shades ?? COLOR_SHADES);
   }, [storage, DEFAULT_BACKGROUND_COLOR, DEFAULT_PRIMARY_COLOR]);
@@ -65,6 +68,7 @@ export default function ColorGenerator(): JSX.Element {
 
   // 修改baseColor
   const updateColor = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(event);
     const colorValue = event.target.value.replace(/^(?=[^#])/, "#");
     setInputColor(colorValue);
     try {
@@ -77,21 +81,25 @@ export default function ColorGenerator(): JSX.Element {
 
   return (
     <div>
-      <input
+      {/* <input
         id="primary_color"
         type="text"
         // className={clsx(styles.input, "margin-right--sm")}
         value={inputColor}
         onChange={updateColor}
-      />
-      <input
+      /> */}
+      <Form layout="inline">
+        <Form.Item label="主题颜色">
+          <Input type="color" value={baseColor} onChange={updateColor}></Input>
+        </Form.Item>
+      </Form>
+      {/* <input
+        aria-label="修改主题颜色"
         type="color"
-        // className={styles.colorInput}
+        className={styles.colorInput}
         // value has to always be a valid color, so baseColor instead of
         // inputColor
-        value={baseColor}
-        onChange={updateColor}
-      />
+      /> */}
     </div>
   );
 }

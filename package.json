@@ -22,6 +22,7 @@
     "@easyops-cn/docusaurus-search-local": "^0.44.2",
     "@mdx-js/react": "^3.0.0",
     "@types/color": "^3.0.6",
+    "antd": "4.x",
     "clsx": "^2.1.1",
     "color": "^4.2.3",
     "prism-react-renderer": "^2.3.0",
