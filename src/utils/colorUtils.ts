@@ -93,11 +93,10 @@ export const updateDOMColors = (
   isDarkTheme: boolean
 ) => {
   // 因为document.styleSheets打印出来发现是一个类数组使用Array.from转换成数组（其实也不用转，类数组通过索引一样能访问，吃多了，源码是这么写的）
-  const styleSheet = Array.from(document.styleSheets)[0];
+  const styleSheet = Array.from(document.styleSheets)[1];
   // 获取规则
   const rules = Array.from(styleSheet.cssRules) as CSSStyleRule[];
   // 这看起来最像自定义主题颜色定义的规则
-  console.log(rules, "rules");
   const ruleToDelete = rules.findIndex(
     (item) =>
       item.selectorText ===
@@ -120,5 +119,6 @@ export const updateDOMColors = (
         --ifm-background-color: ${background};
     }
   `;
+  console.log(newRule, "newRule");
   styleSheet.insertRule(newRule, styleSheet.cssRules.length - 1);
 };

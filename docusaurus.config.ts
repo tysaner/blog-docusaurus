@@ -56,6 +56,12 @@ const config: Config = {
     ],
   ],
   themeConfig: {
+    // 左侧菜单栏
+    docs: {
+      sidebar: {
+        hideable: true,
+      },
+    },
     // 公告栏
     announcementBar: {
       id: "support_us",

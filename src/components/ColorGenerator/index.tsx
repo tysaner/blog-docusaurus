@@ -68,9 +68,9 @@ export default function ColorGenerator(): JSX.Element {
 
   // 修改baseColor
   const updateColor = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(event);
     const colorValue = event.target.value.replace(/^(?=[^#])/, "#");
     setInputColor(colorValue);
+    console.log(Color(colorValue).hex(), "Color(colorValue).hex()");
     try {
       setBaseColor(Color(colorValue).hex());
     } catch {
@@ -90,7 +90,8 @@ export default function ColorGenerator(): JSX.Element {
       /> */}
       <Form layout="inline">
         <Form.Item label="主题颜色">
-          <Input type="color" value={baseColor} onChange={updateColor}></Input>
+          <Input width={100} type="color" value={baseColor} onChange={updateColor}></Input>
+          {baseColor}
         </Form.Item>
       </Form>
       {/* <input
