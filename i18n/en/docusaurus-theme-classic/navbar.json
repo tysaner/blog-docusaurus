@@ -1,10 +1,10 @@
 {
   "title": {
-    "message": "KeepUp",
+    "message": "问问物语",
     "description": "The title in the navbar"
   },
   "logo.alt": {
-    "message": "My Site Logo",
+    "message": "问问物语logo",
     "description": "The alt text of navbar logo"
   },
   "item.label.文档": {

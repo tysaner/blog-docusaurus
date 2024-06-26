@@ -3,7 +3,7 @@ import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 
 const config: Config = {
-  title: "SITE",
+  title: "问问物语",
   tagline: "保持学习的态度是非常酷的",
   favicon: "img/favicon.ico",
   // Set the production url of your site here
@@ -40,6 +40,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: "./sidebars.ts",
+          showLastUpdateTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
         },
@@ -55,7 +56,15 @@ const config: Config = {
     ],
   ],
   themeConfig: {
+    // 公告栏
+    announcementBar: {
+      id: "support_us",
+      content:
+        '💗 欢迎来到我的个人博客呀~ <a target="_blank" rel="noopener noreferrer" href="#">Look here</a> 💫',
+      isCloseable: false,
+    },
     // Replace with your project's social card
+    // 搜索
     algolia: {
       apiKey: "d4c00b1f5479df70aa3b9f3c83fbe113",
       indexName: "dev_test",
@@ -63,9 +72,9 @@ const config: Config = {
     },
     image: "img/docusaurus-social-card.jpg",
     navbar: {
-      title: "KeepUp",
+      title: "问问物语",
       logo: {
-        alt: "My Site Logo",
+        alt: "问问物语logo",
         src: "img/logo.svg",
       },
       items: [

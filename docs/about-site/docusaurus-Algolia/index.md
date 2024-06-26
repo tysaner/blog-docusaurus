@@ -1,6 +1,7 @@
 ---
 title: 如何使用docusaurus配合Algolia实现全局搜索
 sidebar_label: 配置Algolia全局搜索
+sidebar_position: 1
 ---
 
 ## 在 Docusaurus 中使用 Algolia 实现搜索功能
