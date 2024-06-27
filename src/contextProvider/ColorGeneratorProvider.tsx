@@ -72,7 +72,7 @@ function ColorGeneratorProvider({ children }) {
       baseColor: baseColor,
       background: background,
       shades: shades,
-      storage: storage,
+      isDarkTheme: isDarkTheme,
     });
   }, [baseColor, isDarkTheme, background, shades, storage]);
 

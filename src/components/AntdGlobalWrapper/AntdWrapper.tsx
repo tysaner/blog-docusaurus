@@ -4,6 +4,7 @@ import { ThemeInfo } from "@site/src/context";
 
 function AntdWrapper({ children }) {
   const { theme: themeInfo } = useContext(ThemeInfo);
+  console.log(themeInfo, "themeInfo");
 
   return (
     <ConfigProvider
@@ -13,10 +14,9 @@ function AntdWrapper({ children }) {
           // 派生变量，影响范围小
           colorBgContainer: themeInfo?.background ?? "",
         },
-        algorithm:
-          themeInfo?.colorMode === "dark"
-            ? theme.darkAlgorithm
-            : theme.defaultAlgorithm,
+        algorithm: themeInfo?.isDarkTheme
+          ? theme.darkAlgorithm
+          : theme.defaultAlgorithm,
       }}
     >
       {children}

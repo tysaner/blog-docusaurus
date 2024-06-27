@@ -4,7 +4,7 @@ import { translate } from "@docusaurus/Translate";
 import NavbarColorModeToggle from "@theme/Navbar/ColorModeToggle";
 import IconClose from "@theme/Icon/Close";
 import NavbarLogo from "@theme/Navbar/Logo";
-import CunstomTheme from "../../cunstomTheme";
+import CunstomTheme from '@site/src/components/cunstomTheme';
 
 function CloseButton() {
   const mobileSidebar = useNavbarMobileSidebar();
@@ -29,7 +29,7 @@ export default function NavbarMobileSidebarHeader(): JSX.Element {
     <div className="navbar-sidebar__brand">
       <NavbarLogo />
       <NavbarColorModeToggle className="margin-right--md" />
-      <CunstomTheme />
+      <CunstomTheme placement={"left"} />
       <CloseButton />
     </div>
   );

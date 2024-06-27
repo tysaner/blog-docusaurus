@@ -12,7 +12,7 @@ import NavbarLogo from '@theme/Navbar/Logo';
 import NavbarSearch from '@theme/Navbar/Search';
 
 import styles from './styles.module.css';
-import CunstomTheme from '../cunstomTheme';
+import CunstomTheme from '@site/src/components/cunstomTheme';
 
 function useNavbarItems() {
   // TODO temporary casting until ThemeConfig type is improved

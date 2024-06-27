@@ -42,7 +42,7 @@ export default function CunstomTheme(props) {
       </a>
       <Drawer
         title="自定义主题"
-        placement="right"
+        placement={props?.placement ?? "right"}
         onClose={onClose}
         open={open}
         forceRender={true}
