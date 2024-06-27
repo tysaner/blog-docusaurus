@@ -92,8 +92,23 @@ export const updateDOMColors = (
   { baseColor, background, shades }: ColorState,
   isDarkTheme: boolean
 ) => {
+  let sheetIndex: number = 0;
   // 因为document.styleSheets打印出来发现是一个类数组使用Array.from转换成数组（其实也不用转，类数组通过索引一样能访问，吃多了，源码是这么写的）
-  const styleSheet = Array.from(document.styleSheets)[1];
+  Array.from(document.styleSheets).forEach(
+    (item: CSSStyleSheet, index: number) => {
+      const sheetCssRules = Array.from(item.cssRules);
+      const notAntd = sheetCssRules.forEach(
+        (_item: CSSRule, _index: number) => {
+          // 判断是否是antd的css规则
+          if (_item.cssText.includes("--ifm-color-primary")) {
+            sheetIndex = index;
+          }
+        }
+      );
+    }
+  );
+  // 获取规则
+  const styleSheet = Array.from(document.styleSheets)[sheetIndex];
   // 获取规则
   const rules = Array.from(styleSheet.cssRules) as CSSStyleRule[];
   // 这看起来最像自定义主题颜色定义的规则

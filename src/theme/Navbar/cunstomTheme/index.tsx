@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import ColorGenerator from "@site/src/components/ColorGenerator";
-import { Button, Drawer } from "antd";
+import { ConfigProvider, Drawer } from "antd";
 import styles from "./styles.module.css";
+import AntdWrapper from "@site/src/components/AntdGlobalWrapper/AntdWrapper";
 
 export default function CunstomTheme() {
   const [open, setOpen] = useState(false);
@@ -33,23 +34,26 @@ export default function CunstomTheme() {
           color: hovered
             ? "var(--ifm-navbar-link-hover-color)"
             : "var(--ifm-navbar-link-color)",
+          cursor: "pointer",
         }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        Open
+        自定义主题
       </a>
-      <Drawer
-        title="Basic Drawer"
-        placement="right"
-        onClose={onClose}
-        open={open}
-        forceRender={true}
-      >
-        <div>
-          <ColorGenerator isNav={true} />
-        </div>
-      </Drawer>
+      <AntdWrapper>
+        <Drawer
+          title="自定义主题"
+          placement="right"
+          onClose={onClose}
+          open={open}
+          forceRender={true}
+        >
+          <div>
+            <ColorGenerator isNav={true} />
+          </div>
+        </Drawer>
+      </AntdWrapper>
     </div>
   );
 }

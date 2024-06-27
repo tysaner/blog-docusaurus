@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import clsx from "clsx";
 import { Form, Input } from "antd";
-import styles from "./styles.module.css";
 import { useColorMode } from "@docusaurus/theme-common";
 import {
   LIGHT_PRIMARY_COLOR,
@@ -38,8 +36,6 @@ export default function ColorGenerator({
   const [baseColor, setBaseColor] = useState(DEFAULT_PRIMARY_COLOR);
   // 设置最开始的背景颜色
   const [background, setBackground] = useState(DEFAULT_BACKGROUND_COLOR);
-  // 设置当前的主题模式
-  const [inputColor, setInputColor] = useState(DEFAULT_PRIMARY_COLOR);
   // 同一组颜色不同的色调
   const [shades, setShades] = useState(COLOR_SHADES);
   // 用户选择后的缓存信息
@@ -55,7 +51,6 @@ export default function ColorGenerator({
     const storedValues = JSON.parse(
       storage.get() ?? "{}"
     ) as Partial<ColorState>;
-    setInputColor(storedValues.baseColor ?? DEFAULT_PRIMARY_COLOR);
     setBaseColor(storedValues.baseColor ?? DEFAULT_PRIMARY_COLOR);
     setBackground(storedValues.background ?? DEFAULT_BACKGROUND_COLOR);
     setShades(storedValues.shades ?? COLOR_SHADES);
@@ -64,19 +59,24 @@ export default function ColorGenerator({
   useEffect(() => {
     // 调用更新方法
     updateDOMColors({ baseColor, background, shades }, isDarkTheme);
-
     // 缓存状态
     storage.set(JSON.stringify({ baseColor, background, shades }));
     // 监听到baseColor、主题变化、背景颜色变换、一组颜色的色调、缓存。只要状态发生变化就更新
   }, [baseColor, isDarkTheme, background, shades, storage]);
 
   // 修改baseColor
-  const updateColor = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const updateColor = (
+    option: { isBackground: boolean },
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const { isBackground } = option;
     const colorValue = event.target.value.replace(/^(?=[^#])/, "#");
-    setInputColor(colorValue);
-    console.log(Color(colorValue).hex(), "Color(colorValue).hex()");
     try {
-      setBaseColor(Color(colorValue).hex());
+      if (isBackground) {
+        setBackground(Color(colorValue).hex());
+      } else {
+        setBaseColor(Color(colorValue).hex());
+      }
     } catch {
       console.log("转换错误");
       // setBasseColor
@@ -98,7 +98,20 @@ export default function ColorGenerator({
             width={100}
             type="color"
             value={baseColor}
-            onChange={updateColor}
+            onChange={(e) => {
+              updateColor({ isBackground: false }, e);
+            }}
+          ></Input>
+          {baseColor}
+        </Form.Item>
+        <Form.Item label="背景颜色">
+          <Input
+            width={100}
+            type="color"
+            value={background}
+            onChange={(e) => {
+              updateColor({ isBackground: true }, e);
+            }}
           ></Input>
           {baseColor}
         </Form.Item>

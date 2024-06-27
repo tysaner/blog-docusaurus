@@ -6,8 +6,6 @@
 
 /* You can override the default Infima variables here. */
 
-@import 'antd/dist/antd.css';
-
 :root {
   --ifm-color-primary: #2e8555;
   --ifm-color-primary-dark: #29784c;
@@ -50,5 +48,8 @@ div[class^="announcementBar_"] {
 }
 
 .navbar__items--right > :last-child {
-  padding-right:initial ;
+  padding-right: initial;
+}
+body {
+  background-color: var(--ifm-background-color) !important;
 }
