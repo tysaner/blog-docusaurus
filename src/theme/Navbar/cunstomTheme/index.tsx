@@ -47,7 +47,7 @@ export default function CunstomTheme() {
         forceRender={true}
       >
         <div>
-          <ColorGenerator />
+          <ColorGenerator isNav={true} />
         </div>
       </Drawer>
     </div>

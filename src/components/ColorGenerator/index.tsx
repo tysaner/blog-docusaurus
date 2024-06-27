@@ -16,7 +16,11 @@ import {
 } from "@site/src/utils/colorUtils";
 import Color from "color";
 
-export default function ColorGenerator(): JSX.Element {
+export default function ColorGenerator({
+  isNav,
+}: {
+  isNav?: boolean;
+}): JSX.Element {
   // 用钩子获取到当前的主题模式，和更改主题模式的方法
   const { colorMode, setColorMode } = useColorMode();
   // 判断当前是不是夜晚模式
@@ -90,7 +94,12 @@ export default function ColorGenerator(): JSX.Element {
       /> */}
       <Form layout="inline">
         <Form.Item label="主题颜色">
-          <Input width={100} type="color" value={baseColor} onChange={updateColor}></Input>
+          <Input
+            width={100}
+            type="color"
+            value={baseColor}
+            onChange={updateColor}
+          ></Input>
           {baseColor}
         </Form.Item>
       </Form>

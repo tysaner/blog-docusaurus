@@ -119,6 +119,5 @@ export const updateDOMColors = (
         --ifm-background-color: ${background};
     }
   `;
-  console.log(newRule, "newRule");
   styleSheet.insertRule(newRule, styleSheet.cssRules.length - 1);
 };
