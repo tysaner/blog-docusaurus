@@ -15,9 +15,6 @@ function ThemeProvider({ children }) {
       return { ...current, ...param };
     });
   };
-  useEffect(() => {
-    console.log(theme, "更新了");
-  }, [theme]);
   return (
     <ThemeInfo.Provider value={{ theme, toggleTheme }}>
       <AntdWrapper>{children}</AntdWrapper>

@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import ColorGenerator from "@site/src/components/ColorGenerator";
-import { Button, ConfigProvider, Drawer } from "antd";
+import { Drawer } from "antd";
 import styles from "./styles.module.css";
-import AntdWrapper from "@site/src/components/AntdGlobalWrapper/AntdWrapper";
 
-export default function CunstomTheme() {
+export default function CunstomTheme(props) {
   const [open, setOpen] = useState(false);
   const [hovered, setHovered] = useState(false);
 
@@ -25,7 +24,7 @@ export default function CunstomTheme() {
   };
 
   return (
-    <div>
+    <div className={props.className}>
       <a
         type="link"
         onClick={showDrawer}
@@ -50,7 +49,6 @@ export default function CunstomTheme() {
       >
         <div>
           <ColorGenerator />
-          <Button>测试</Button>
         </div>
       </Drawer>
     </div>

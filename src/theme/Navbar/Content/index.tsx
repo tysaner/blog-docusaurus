@@ -84,7 +84,7 @@ export default function NavbarContent(): JSX.Element {
               <SearchBar />
             </NavbarSearch>
           )}
-          <CunstomTheme />
+          <CunstomTheme className={styles.colorModeToggle} />
         </>
       }
     />

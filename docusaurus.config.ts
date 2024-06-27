@@ -79,6 +79,8 @@ const config: Config = {
     image: "img/docusaurus-social-card.jpg",
     navbar: {
       title: "问问物语",
+      hideOnScroll: true,
+      style: 'primary',
       logo: {
         alt: "问问物语logo",
         src: "img/logo.svg",
