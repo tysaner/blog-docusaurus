@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Form, Input } from "antd";
+import { Button, Form, Input } from "antd";
 import { useColorMode } from "@docusaurus/theme-common";
 import {
   LIGHT_PRIMARY_COLOR,
@@ -70,13 +70,6 @@ export default function ColorGenerator(): JSX.Element {
           {baseColor}
         </Form.Item>
       </Form>
-      {/* <input
-        aria-label="修改主题颜色"
-        type="color"
-        className={styles.colorInput}
-        // value has to always be a valid color, so baseColor instead of
-        // inputColor
-      /> */}
     </div>
   );
 }
