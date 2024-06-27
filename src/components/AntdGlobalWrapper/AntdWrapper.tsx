@@ -4,8 +4,6 @@ import { ThemeInfo } from "@site/src/context";
 
 function AntdWrapper({ children }) {
   const { theme: themeInfo } = useContext(ThemeInfo);
-  console.log(themeInfo, "themeInfo");
-
   return (
     <ConfigProvider
       theme={{
