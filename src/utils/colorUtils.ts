@@ -97,14 +97,12 @@ export const updateDOMColors = (
   Array.from(document.styleSheets).forEach(
     (item: CSSStyleSheet, index: number) => {
       const sheetCssRules = Array.from(item.cssRules);
-      const notAntd = sheetCssRules.forEach(
-        (_item: CSSRule, _index: number) => {
-          // 判断是否是antd的css规则
-          if (_item.cssText.includes("--ifm-color-primary")) {
-            sheetIndex = index;
-          }
+      sheetCssRules.forEach((_item: CSSRule, _index: number) => {
+        // 判断是否是antd的css规则
+        if (_item.cssText.includes("--ifm-color-primary")) {
+          sheetIndex = index;
         }
-      );
+      });
     }
   );
   // 获取规则
@@ -121,8 +119,7 @@ export const updateDOMColors = (
   );
   if (ruleToDelete >= 0) {
     styleSheet.deleteRule(ruleToDelete);
-  };
-  console.log(background,'background');
+  }
   // 添加新的规则
   const newRule = `
     ${isDarkTheme ? '[data-theme="dark"]' : '[data-theme="light"]'}
@@ -132,7 +129,7 @@ export const updateDOMColors = (
           return ` ${item.variableName} : ${item.hex} ;`;
         })
         .join("\n")}
-        --ifm-background-color: ${background};
+        --ifm-background-color: ${background} !important;
     }
   `;
   styleSheet.insertRule(newRule, styleSheet.cssRules.length - 1);

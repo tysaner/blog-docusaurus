@@ -1,9 +1,3 @@
-import { createContext } from "react";
+import { Context, createContext } from "react";
 
-export const ThemeInfo = createContext({
-  colorMode: "light",
-  isDarkTheme: false,
-  baseColor: "#ffffff",
-  background:'#ffffff',
-  storage:{}
-});
+export const ThemeInfo: Context<any> = createContext({});

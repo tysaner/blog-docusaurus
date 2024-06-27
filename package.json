@@ -25,6 +25,7 @@
     "antd": "^5.18.3",
     "clsx": "^2.1.1",
     "color": "^4.2.3",
+    "lodash-es": "^4.17.21",
     "prism-react-renderer": "^2.3.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
@@ -33,6 +34,7 @@
     "@docusaurus/module-type-aliases": "3.4.0",
     "@docusaurus/tsconfig": "3.4.0",
     "@docusaurus/types": "3.4.0",
+    "@types/lodash-es": "^4",
     "typescript": "~5.2.2"
   },
   "browserslist": {

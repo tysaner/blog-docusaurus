@@ -41,20 +41,18 @@ export default function CunstomTheme() {
       >
         自定义主题
       </a>
-      <AntdWrapper>
-        <Drawer
-          title="自定义主题"
-          placement="right"
-          onClose={onClose}
-          open={open}
-          forceRender={true}
-        >
-          <div>
-            <ColorGenerator />
-            <Button>测试</Button>
-          </div>
-        </Drawer>
-      </AntdWrapper>
+      <Drawer
+        title="自定义主题"
+        placement="right"
+        onClose={onClose}
+        open={open}
+        forceRender={true}
+      >
+        <div>
+          <ColorGenerator />
+          <Button>测试</Button>
+        </div>
+      </Drawer>
     </div>
   );
 }

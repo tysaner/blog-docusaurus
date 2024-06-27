@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Form, Input } from "antd";
 import { useColorMode } from "@docusaurus/theme-common";
 import {
@@ -13,10 +13,17 @@ import {
   updateDOMColors,
 } from "@site/src/utils/colorUtils";
 import Color from "color";
+import { ThemeInfo } from "@site/src/context";
 
 export default function ColorGenerator(): JSX.Element {
   // 用钩子获取到当前的主题模式，和更改主题模式的方法
   const { colorMode } = useColorMode();
+  // 存储用户选择的颜色和背景色
+  const { theme: themeInfo, toggleTheme } = useContext(ThemeInfo);
+  useEffect(() => {
+    toggleTheme({ colorMode });
+  }, [colorMode]);
+
   // 判断当前是不是夜晚模式
   const isDarkTheme = colorMode === "dark";
 
@@ -27,18 +34,7 @@ export default function ColorGenerator(): JSX.Element {
   const DEFAULT_BACKGROUND_COLOR = isDarkTheme
     ? DARK_BACKGROUND_COLOR
     : LIGHT_BACKGROUND_COLOR;
-  
 
-  // // 设置最开始的颜色
-  // const [baseColor, setBaseColor] = useState(DEFAULT_PRIMARY_COLOR);
-  // // 设置最开始的背景颜色
-  // const [background, setBackground] = useState(DEFAULT_BACKGROUND_COLOR);
-  // // 同一组颜色不同的色调
-  // const [shades, setShades] = useState(COLOR_SHADES);
-  // // 用户选择后的缓存信息
-  // const [storage, setStorage] = useState(
-  //   isDarkTheme ? darkStorage : lightStorage
-  // );
   // 设置最开始的颜色
   const [baseColor, setBaseColor] = useState(DEFAULT_PRIMARY_COLOR);
   // 设置最开始的背景颜色
@@ -61,6 +57,12 @@ export default function ColorGenerator(): JSX.Element {
     setBaseColor(storedValues.baseColor ?? DEFAULT_PRIMARY_COLOR);
     setBackground(storedValues.background ?? DEFAULT_BACKGROUND_COLOR);
     setShades(storedValues.shades ?? COLOR_SHADES);
+    toggleTheme({
+      baseColor: storedValues.baseColor ?? DEFAULT_PRIMARY_COLOR,
+      background: storedValues.background ?? DEFAULT_BACKGROUND_COLOR,
+      shades: storedValues.shades ?? COLOR_SHADES,
+      isDarkTheme: isDarkTheme,
+    });
   }, [storage, DEFAULT_BACKGROUND_COLOR, DEFAULT_PRIMARY_COLOR]);
 
   useEffect(() => {
@@ -69,6 +71,12 @@ export default function ColorGenerator(): JSX.Element {
     // 缓存状态
     storage.set(JSON.stringify({ baseColor, background, shades }));
     // 监听到baseColor、主题变化、背景颜色变换、一组颜色的色调、缓存。只要状态发生变化就更新
+    toggleTheme({
+      baseColor: baseColor,
+      background: background,
+      shades: shades,
+      storage: storage,
+    });
   }, [baseColor, isDarkTheme, background, shades, storage]);
 
   // 修改baseColor
