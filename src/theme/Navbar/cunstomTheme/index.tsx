@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ColorGenerator from "@site/src/components/ColorGenerator";
-import { ConfigProvider, Drawer } from "antd";
+import { Button, ConfigProvider, Drawer } from "antd";
 import styles from "./styles.module.css";
 import AntdWrapper from "@site/src/components/AntdGlobalWrapper/AntdWrapper";
 
@@ -50,7 +50,8 @@ export default function CunstomTheme() {
           forceRender={true}
         >
           <div>
-            <ColorGenerator isNav={true} />
+            <ColorGenerator />
+            <Button>测试</Button>
           </div>
         </Drawer>
       </AntdWrapper>

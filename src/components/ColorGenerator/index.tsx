@@ -14,13 +14,9 @@ import {
 } from "@site/src/utils/colorUtils";
 import Color from "color";
 
-export default function ColorGenerator({
-  isNav,
-}: {
-  isNav?: boolean;
-}): JSX.Element {
+export default function ColorGenerator(): JSX.Element {
   // 用钩子获取到当前的主题模式，和更改主题模式的方法
-  const { colorMode, setColorMode } = useColorMode();
+  const { colorMode } = useColorMode();
   // 判断当前是不是夜晚模式
   const isDarkTheme = colorMode === "dark";
 
