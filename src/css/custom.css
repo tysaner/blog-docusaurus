@@ -51,5 +51,5 @@ div[class^="announcementBar_"] {
   padding-right: initial;
 }
 body {
-  background-color: var(--ifm-background-color) !important;
+  background-color: var(--ifm-background-color) ;
 }
