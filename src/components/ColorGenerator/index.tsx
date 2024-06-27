@@ -27,7 +27,18 @@ export default function ColorGenerator(): JSX.Element {
   const DEFAULT_BACKGROUND_COLOR = isDarkTheme
     ? DARK_BACKGROUND_COLOR
     : LIGHT_BACKGROUND_COLOR;
+  
 
+  // // 设置最开始的颜色
+  // const [baseColor, setBaseColor] = useState(DEFAULT_PRIMARY_COLOR);
+  // // 设置最开始的背景颜色
+  // const [background, setBackground] = useState(DEFAULT_BACKGROUND_COLOR);
+  // // 同一组颜色不同的色调
+  // const [shades, setShades] = useState(COLOR_SHADES);
+  // // 用户选择后的缓存信息
+  // const [storage, setStorage] = useState(
+  //   isDarkTheme ? darkStorage : lightStorage
+  // );
   // 设置最开始的颜色
   const [baseColor, setBaseColor] = useState(DEFAULT_PRIMARY_COLOR);
   // 设置最开始的背景颜色
