@@ -42,10 +42,7 @@ function ColorGeneratorProvider({ children }) {
   const [storage, setStorage] = useState(
     isDarkTheme ? darkStorage : lightStorage
   );
-
-  useEffect(() => {
-    setStorage(isDarkTheme ? darkStorage : lightStorage);
-  }, [isDarkTheme]);
+  const [clientInfo, setClientInfo] = useState<Record<string, any>>({});
 
   useEffect(() => {
     const storedValues = JSON.parse(
@@ -76,6 +73,54 @@ function ColorGeneratorProvider({ children }) {
     });
   }, [baseColor, isDarkTheme, background, shades, storage]);
 
+  // 更换主题动画
+  // 是否为第一次渲染
+  const [initRender, setInitRender] = useState(true);
+  useEffect(() => {
+    if (!(document as any).startViewTransition) {
+      return;
+    }
+    if (!initRender) {
+      const { clientY, clientX } = clientInfo;
+      const tragetRadius = Math.hypot(
+        window.innerWidth - clientX,
+        window.innerHeight - clientY
+      );
+      const clipPath = [
+        `circle(0% at ${clientX}px ${clientY}px)`,
+        `circle(${tragetRadius}px at ${clientX}px ${clientY}px)`,
+      ];
+      const transition = (document as any).startViewTransition();
+      transition.ready.then(() => {
+        setStorage(isDarkTheme ? darkStorage : lightStorage);
+        document.documentElement.animate(
+          {
+            clipPath: colorMode === "dark" ? clipPath.reverse() : clipPath,
+          },
+          {
+            duration: 500,
+            easing: "ease-in",
+            pseudoElement: `::view-transition-new(root)`,
+          }
+        );
+      });
+    } else {
+      setStorage(isDarkTheme ? darkStorage : lightStorage);
+      setInitRender(false);
+    }
+  }, [colorMode]);
+  useEffect(() => {
+    const colorModeBtn: HTMLDivElement = document.querySelector(
+      ".changeColorModeToggle"
+    );
+    const clientY = colorModeBtn.offsetHeight + colorModeBtn.clientHeight / 2;
+    const clientX = colorModeBtn.offsetLeft + colorModeBtn.clientWidth / 2;
+    setClientInfo({
+      clientY,
+      clientX,
+    });
+  }, [colorMode]);
+
   return (
     <ColorGeneratorContext.Provider
       value={{
@@ -86,6 +131,8 @@ function ColorGeneratorProvider({ children }) {
         colorMode,
         storage,
         shades,
+        clientInfo,
+        setClientInfo,
       }}
     >
       {children}
