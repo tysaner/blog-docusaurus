@@ -1,19 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Button, Form, Input } from "antd";
-import { useColorMode } from "@docusaurus/theme-common";
-import {
-  LIGHT_PRIMARY_COLOR,
-  DARK_PRIMARY_COLOR,
-  LIGHT_BACKGROUND_COLOR,
-  DARK_BACKGROUND_COLOR,
-  COLOR_SHADES,
-  darkStorage,
-  lightStorage,
-  ColorState,
-  updateDOMColors,
-} from "@site/src/utils/colorUtils";
+import React, { useContext } from "react";
+import { Form, Input } from "antd";
 import Color from "color";
-import { ColorGeneratorContext, ThemeInfo } from "@site/src/context";
+import { ColorGeneratorContext } from "@site/src/context";
 
 export default function ColorGenerator(): JSX.Element {
   const { baseColor, setBaseColor, background, setBackground } = useContext(
@@ -39,13 +27,6 @@ export default function ColorGenerator(): JSX.Element {
   };
   return (
     <div>
-      {/* <input
-        id="primary_color"
-        type="text"
-        // className={clsx(styles.input, "margin-right--sm")}
-        value={inputColor}
-        onChange={updateColor}
-      /> */}
       <Form layout="inline">
         <Form.Item label="主题颜色">
           <Input
