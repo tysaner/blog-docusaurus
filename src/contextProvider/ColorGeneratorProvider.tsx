@@ -83,26 +83,30 @@ function ColorGeneratorProvider({ children }) {
     if (!initRender) {
       const { clientY, clientX } = clientInfo;
       const tragetRadius = Math.hypot(
-        window.innerWidth - clientX,
+        Math.max(window.innerWidth - clientX, clientX),
         window.innerHeight - clientY
       );
       const clipPath = [
         `circle(0% at ${clientX}px ${clientY}px)`,
         `circle(${tragetRadius}px at ${clientX}px ${clientY}px)`,
       ];
-      const transition = (document as any).startViewTransition();
+      const transition = (document as any).startViewTransition(() => {
+        document.documentElement.classList.toggle("dark");
+      });
       transition.ready.then(() => {
-        setStorage(isDarkTheme ? darkStorage : lightStorage);
         document.documentElement.animate(
           {
-            clipPath: colorMode === "dark" ? clipPath.reverse() : clipPath,
+            clipPath: colorMode === "dark" ? clipPath : clipPath.reverse(),
           },
           {
             duration: 500,
             easing: "ease-in",
-            pseudoElement: `::view-transition-new(root)`,
+            pseudoElement: `::view-transition-${
+              colorMode === "dark" ? "new" : "old"
+            }(root)`,
           }
         );
+        setStorage(isDarkTheme ? darkStorage : lightStorage);
       });
     } else {
       setStorage(isDarkTheme ? darkStorage : lightStorage);

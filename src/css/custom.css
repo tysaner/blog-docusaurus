@@ -35,36 +35,44 @@
 }
 
 div[class^="announcementBar_"] {
-  background: repeating-linear-gradient(
-    35deg,
-    var(--site-announcement-bar-stripe-color1),
-    var(--site-announcement-bar-stripe-color1) 20px,
-    var(--site-announcement-bar-stripe-color2) 10px,
-    var(--site-announcement-bar-stripe-color2) 40px
-  );
+  background: repeating-linear-gradient(35deg,
+      var(--site-announcement-bar-stripe-color1),
+      var(--site-announcement-bar-stripe-color1) 20px,
+      var(--site-announcement-bar-stripe-color2) 10px,
+      var(--site-announcement-bar-stripe-color2) 40px);
   font-weight: 700;
   padding: 5px 0;
   font-size: 20px;
 }
+
 ::view-transition-old(root),
-::view-transition-new(root) {
-  mix-blend-mode: normal;
-}
-::view-transition-old(root),
-::view-transition-new(root) {
+.dark::view-transition-new(root) {
   z-index: 1;
 }
-::view-transition-new(root),
-::view-transition-old(root) {
-  z-index: 9999;
-}
-:root {
-  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+
+::view-transition-old(root),
+.dark::view-transition-new(root) {
+  z-index: 1;
 }
 
-.navbar__items--right > :last-child {
+::view-transition-new(root),
+.dark::view-transition-old(root) {
+  z-index: 9999;
+}
+
+::view-transition-new(root),
+::view-transition-old(root) {
+  animation: none;
+}
+
+html {
+  transition: background-color 0.5s ease-in, color 0.5s ease-in;
+}
+
+.navbar__items--right> :last-child {
   padding-right: initial;
 }
+
 body {
   background-color: var(--ifm-background-color);
 }
