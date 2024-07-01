@@ -5,7 +5,7 @@ import type * as Preset from "@docusaurus/preset-classic";
 const config: Config = {
   title: "问问物语",
   tagline: "保持学习的态度是非常酷的",
-  favicon: "img/favicon.ico",
+  favicon: "img/docusaurus.png",
   // Set the production url of your site here
   url: "https://your-docusaurus-site.example.com",
   // Set the /<baseUrl>/ pathname under which your site is served
@@ -83,7 +83,7 @@ const config: Config = {
       style: 'primary',
       logo: {
         alt: "问问物语logo",
-        src: "img/logo.svg",
+        src: "img/docusaurus.png",
       },
       items: [
         {
