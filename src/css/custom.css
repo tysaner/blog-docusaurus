@@ -74,3 +74,6 @@ div[class^="announcementBar_"] {
 body {
   background-color: var(--ifm-background-color);
 }
+.navbar__logo img {
+  border-radius: 999px;
+}

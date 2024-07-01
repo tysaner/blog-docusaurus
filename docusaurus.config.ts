@@ -65,8 +65,7 @@ const config: Config = {
     // 公告栏
     announcementBar: {
       id: "support_us",
-      content:
-        '💗 欢迎来到我的个人博客呀~ <a target="_blank" rel="noopener noreferrer" href="#">Look here</a> 💫',
+      content: "💗 欢迎来到我的博客~  💫",
       isCloseable: false,
     },
     // Replace with your project's social card
@@ -80,7 +79,7 @@ const config: Config = {
     navbar: {
       title: "问问物语",
       hideOnScroll: true,
-      style: 'primary',
+      // style: 'primary',
       logo: {
         alt: "问问物语logo",
         src: "img/docusaurus.png",
@@ -151,6 +150,7 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,
+  plugins: ["@docusaurus/plugin-ideal-image"],
 };
 
 export default config;
