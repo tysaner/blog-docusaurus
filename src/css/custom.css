@@ -35,11 +35,13 @@
 }
 
 div[class^="announcementBar_"] {
-  background: repeating-linear-gradient(35deg,
-      var(--site-announcement-bar-stripe-color1),
-      var(--site-announcement-bar-stripe-color1) 20px,
-      var(--site-announcement-bar-stripe-color2) 10px,
-      var(--site-announcement-bar-stripe-color2) 40px);
+  background: repeating-linear-gradient(
+    35deg,
+    var(--site-announcement-bar-stripe-color1),
+    var(--site-announcement-bar-stripe-color1) 20px,
+    var(--site-announcement-bar-stripe-color2) 10px,
+    var(--site-announcement-bar-stripe-color2) 40px
+  );
   font-weight: 700;
   padding: 5px 0;
   font-size: 20px;
@@ -65,11 +67,7 @@ div[class^="announcementBar_"] {
   animation: none;
 }
 
-html {
-  transition: background-color 0.5s ease-in, color 0.5s ease-in;
-}
-
-.navbar__items--right> :last-child {
+.navbar__items--right > :last-child {
   padding-right: initial;
 }
 

@@ -77,53 +77,54 @@ function ColorGeneratorProvider({ children }) {
   // 是否为第一次渲染
   const [initRender, setInitRender] = useState(true);
   useEffect(() => {
-    if (!(document as any).startViewTransition) {
-      return;
-    }
-    if (!initRender) {
-      const { clientY, clientX } = clientInfo;
-      const tragetRadius = Math.hypot(
-        Math.max(window.innerWidth - clientX, clientX),
-        window.innerHeight - clientY
-      );
-      const clipPath = [
-        `circle(0% at ${clientX}px ${clientY}px)`,
-        `circle(${tragetRadius}px at ${clientX}px ${clientY}px)`,
-      ];
-      const transition = (document as any).startViewTransition(() => {
-        document.documentElement.classList.toggle("dark");
-      });
-      transition.ready.then(() => {
-        document.documentElement.animate(
-          {
-            clipPath: colorMode === "dark" ? clipPath : clipPath.reverse(),
-          },
-          {
-            duration: 500,
-            easing: "ease-in",
-            pseudoElement: `::view-transition-${
-              colorMode === "dark" ? "new" : "old"
-            }(root)`,
-          }
-        );
-        setStorage(isDarkTheme ? darkStorage : lightStorage);
-      });
-    } else {
-      setStorage(isDarkTheme ? darkStorage : lightStorage);
-      setInitRender(false);
-    }
+    // if (!(document as any).startViewTransition) {
+    //   return;
+    // }
+    // if (!initRender) {
+    //   const { clientY, clientX } = clientInfo;
+    //   const tragetRadius = Math.hypot(
+    //     Math.max(window.innerWidth - clientX, clientX),
+    //     window.innerHeight - clientY
+    //   );
+    //   const clipPath = [
+    //     `circle(0% at ${clientX}px ${clientY}px)`,
+    //     `circle(${tragetRadius}px at ${clientX}px ${clientY}px)`,
+    //   ];
+    //   const transition = (document as any).startViewTransition(() => {
+    //     document.documentElement.classList.toggle("dark");
+    //   });
+    //   transition.ready.then(() => {
+    //     document.documentElement.animate(
+    //       {
+    //         clipPath: colorMode === "dark" ? clipPath : clipPath.reverse(),
+    //       },
+    //       {
+    //         duration: 500,
+    //         easing: "ease-in",
+    //         pseudoElement: `::view-transition-${
+    //           colorMode === "dark" ? "new" : "old"
+    //         }(root)`,
+    //       }
+    //     );
+    //     setStorage(isDarkTheme ? darkStorage : lightStorage);
+    //   });
+    // } else {
+    //   setStorage(isDarkTheme ? darkStorage : lightStorage);
+    //   setInitRender(false);
+    // }
+    setStorage(isDarkTheme ? darkStorage : lightStorage);
   }, [colorMode]);
-  useEffect(() => {
-    const colorModeBtn: HTMLDivElement = document.querySelector(
-      ".changeColorModeToggle"
-    );
-    const clientY = colorModeBtn.offsetHeight + colorModeBtn.clientHeight / 2;
-    const clientX = colorModeBtn.offsetLeft + colorModeBtn.clientWidth / 2;
-    setClientInfo({
-      clientY,
-      clientX,
-    });
-  }, [colorMode]);
+  // useEffect(() => {
+  //   const colorModeBtn: HTMLDivElement = document.querySelector(
+  //     ".changeColorModeToggle"
+  //   );
+  //   const clientY = colorModeBtn.offsetHeight + colorModeBtn.clientHeight / 2;
+  //   const clientX = colorModeBtn.offsetLeft + colorModeBtn.clientWidth / 2;
+  //   setClientInfo({
+  //     clientY,
+  //     clientX,
+  //   });
+  // }, [colorMode]);
 
   return (
     <ColorGeneratorContext.Provider
