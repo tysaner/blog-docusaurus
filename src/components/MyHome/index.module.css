@@ -1,5 +1,5 @@
 .wrapper {
-  padding: 40px 40px;
+  padding: 100px 40px;
 }
 
 .title {
@@ -25,7 +25,50 @@
   justify-content: space-around;
   flex-direction: row-reverse;
 }
+.logoContainer {
+  position: relative;
+  transform: translate(-32px, -42px);
+  width: 320px;
+  height: 320px;
+}
+.logoBg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: linear-gradient(
+    -90deg,
+    rgb(255, 167, 69),
+    rgb(254, 134, 159),
+    rgb(239, 122, 200),
+    rgb(160, 131, 237),
+    rgba(67, 174, 255, 0.4),
+    rgb(160, 131, 237),
+    rgb(239, 122, 200),
+    rgb(254, 134, 159),
+    rgb(255, 167, 69)
+  );
+  animation: Change_text_color 12s infinite ease-in-out;
+  background-size: 200%;
+  filter: blur(120px);
+  width: 100%;
+  height: 100%;
+  transition: opacity 1s ease;
+}
+@keyframes Change_text_color {
+  0% {
+    background-position: 0%;
+  }
+
+  100% {
+    background-position: 200%;
+  }
+}
 .img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 320px;
   height: 320px;
   cursor: pointer;
@@ -39,6 +82,7 @@
   .wrapper {
     margin: 0 auto;
     text-align: center;
+    padding: 80px 0;
   }
   .title {
     font-size: 48px;
@@ -49,6 +93,9 @@
   .description {
     font-size: 20px;
   }
+  .logoContainer {
+    transform: none;
+  }
   .img {
     width: 256px;
     height: 256px;
@@ -56,6 +103,7 @@
   .head {
     flex-direction: column;
     justify-items: center;
+    align-items: center;
   }
 }
 

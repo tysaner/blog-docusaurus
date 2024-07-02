@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ColorGeneratorContext, ThemeInfo } from "../context";
 import { useColorMode } from "@docusaurus/theme-common";
+import { ColorMode } from "@docusaurus/theme-common";
 import {
   COLOR_SHADES,
   ColorState,
@@ -12,17 +13,17 @@ import {
   lightStorage,
   updateDOMColors,
 } from "../utils/colorUtils";
-import Color from "color";
 
 function ColorGeneratorProvider({ children }) {
   // 用钩子获取到当前的主题模式，和更改主题模式的方法
-  const { colorMode } = useColorMode();
+  const { colorMode, setColorMode } = useColorMode();
+  const [colorState, setColorState] = useState<ColorMode>(colorMode);
   // 存储用户选择的颜色和背景色
   const { theme: themeInfo, toggleTheme } = useContext(ThemeInfo);
   // 存储用户选择的颜色和背景色
 
   // 判断当前是不是夜晚模式
-  const isDarkTheme = colorMode === "dark";
+  const isDarkTheme = colorState === "dark";
 
   const DEFAULT_PRIMARY_COLOR = isDarkTheme
     ? DARK_PRIMARY_COLOR
@@ -77,55 +78,56 @@ function ColorGeneratorProvider({ children }) {
   // 是否为第一次渲染
   const [initRender, setInitRender] = useState(true);
   useEffect(() => {
-    // if (!(document as any).startViewTransition) {
-    //   return;
-    // }
-    // if (!initRender) {
-    //   const { clientY, clientX } = clientInfo;
-    //   const tragetRadius = Math.hypot(
-    //     Math.max(window.innerWidth - clientX, clientX),
-    //     window.innerHeight - clientY
-    //   );
-    //   const clipPath = [
-    //     `circle(0% at ${clientX}px ${clientY}px)`,
-    //     `circle(${tragetRadius}px at ${clientX}px ${clientY}px)`,
-    //   ];
-    //   const transition = (document as any).startViewTransition(() => {
-    //     document.documentElement.classList.toggle("dark");
-    //   });
-    //   transition.ready.then(() => {
-    //     document.documentElement.animate(
-    //       {
-    //         clipPath: colorMode === "dark" ? clipPath : clipPath.reverse(),
-    //       },
-    //       {
-    //         duration: 500,
-    //         easing: "ease-in",
-    //         pseudoElement: `::view-transition-${
-    //           colorMode === "dark" ? "new" : "old"
-    //         }(root)`,
-    //       }
-    //     );
-    //     setStorage(isDarkTheme ? darkStorage : lightStorage);
-    //   });
-    // } else {
-    //   setStorage(isDarkTheme ? darkStorage : lightStorage);
-    //   setInitRender(false);
-    // }
-    setStorage(isDarkTheme ? darkStorage : lightStorage);
-  }, [colorMode]);
-  // useEffect(() => {
-  //   const colorModeBtn: HTMLDivElement = document.querySelector(
-  //     ".changeColorModeToggle"
-  //   );
-  //   const clientY = colorModeBtn.offsetHeight + colorModeBtn.clientHeight / 2;
-  //   const clientX = colorModeBtn.offsetLeft + colorModeBtn.clientWidth / 2;
-  //   setClientInfo({
-  //     clientY,
-  //     clientX,
-  //   });
-  // }, [colorMode]);
+    if (!(document as any).startViewTransition) {
+      return;
+    }
+    if (!initRender) {
+      const { clientY, clientX } = clientInfo;
+      const tragetRadius = Math.hypot(
+        Math.max(window.innerWidth - clientX, clientX),
+        window.innerHeight - clientY
+      );
+      const clipPath = [
+        `circle(0% at ${clientX}px ${clientY}px)`,
+        `circle(${tragetRadius}px at ${clientX}px ${clientY}px)`,
+      ];
+      console.log(clipPath);
+      const transition = (document as any).startViewTransition(() => {
+        document.documentElement.classList.toggle("dark");
+        setColorMode(colorState);
+        setStorage(isDarkTheme ? darkStorage : lightStorage);
+      });
+      transition.ready.then(() => {
+        document.documentElement.animate(
+          {
+            clipPath: colorState === "dark" ? clipPath : clipPath.reverse(),
+          },
+          {
+            duration: 500,
+            easing: "ease-in",
+            pseudoElement: `::view-transition-${
+              colorState === "dark" ? "new" : "old"
+            }(root)`,
+          }
+        );
+      });
+    } else {
+      setStorage(isDarkTheme ? darkStorage : lightStorage);
+      setInitRender(false);
+    }
+  }, [colorState]);
 
+  useEffect(() => {
+    const colorModeBtn: HTMLDivElement = document.querySelector(
+      ".changeColorModeToggle"
+    );
+    const clientY = colorModeBtn.offsetHeight + colorModeBtn.clientHeight / 2;
+    const clientX = colorModeBtn.offsetLeft + colorModeBtn.clientWidth / 2;
+    setClientInfo({
+      clientY,
+      clientX,
+    });
+  }, [colorState]);
   return (
     <ColorGeneratorContext.Provider
       value={{
@@ -133,11 +135,13 @@ function ColorGeneratorProvider({ children }) {
         setBaseColor,
         background,
         setBackground,
-        colorMode,
+        colorMode: colorState,
         storage,
         shades,
         clientInfo,
         setClientInfo,
+        colorState,
+        setColorState,
       }}
     >
       {children}

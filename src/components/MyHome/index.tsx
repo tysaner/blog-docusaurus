@@ -16,6 +16,7 @@ function index() {
     <div className={styles.wrapper}>
       <div className={styles.head}>
         <div className={styles.logoContainer}>
+          <div className={styles.logoBg}></div>
           <img src={Logo} className={styles.img} alt="" />
         </div>
         <div className={styles.textContainer}>
