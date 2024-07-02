@@ -88,25 +88,25 @@ function ColorGeneratorProvider({ children }) {
         window.innerHeight - clientY
       );
       const clipPath = [
-        `circle(0% at ${clientX}px ${clientY}px)`,
-        `circle(${tragetRadius}px at ${clientX}px ${clientY}px)`,
+        `circle(0% at ${clientX ?? 0}px ${clientY ?? 0}px)`,
+        `circle(${tragetRadius ? `${tragetRadius}px` : `100%`} at ${
+          clientX ?? 0
+        }px ${clientY ?? 0}px)`,
       ];
-      console.log(clipPath);
       const transition = (document as any).startViewTransition(() => {
-        document.documentElement.classList.toggle("dark");
         setColorMode(colorState);
         setStorage(isDarkTheme ? darkStorage : lightStorage);
       });
       transition.ready.then(() => {
         document.documentElement.animate(
           {
-            clipPath: colorState === "dark" ? clipPath : clipPath.reverse(),
+            clipPath: colorState === "dark" ? clipPath.reverse() : clipPath,
           },
           {
-            duration: 500,
+            duration: 300,
             easing: "ease-in",
             pseudoElement: `::view-transition-${
-              colorState === "dark" ? "new" : "old"
+              colorState === "dark" ? "old" : "new"
             }(root)`,
           }
         );

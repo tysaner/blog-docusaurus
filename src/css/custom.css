@@ -18,7 +18,12 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --site-announcement-bar-stripe-color1: #e8d7ff;
   --site-announcement-bar-stripe-color2: #ffe9d1;
-  --vp-home-hero-image-background-image:linear-gradient( -45deg, var(--ifm-color-primary) 30%, var(--ifm-color-primary-lightest) )
+  --vp-home-hero-image-background-image: linear-gradient(
+    -45deg,
+    var(--ifm-color-primary) 30%,
+    var(--ifm-color-primary-lightest)
+  );
+  --vp-home-hero-name-background: linear-gradient(-2deg, #bd34fe -15%, #41d1ff);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -49,23 +54,19 @@ div[class^="announcementBar_"] {
 }
 
 ::view-transition-old(root),
-.dark::view-transition-new(root) {
-  z-index: 1;
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
 }
 
 ::view-transition-old(root),
-.dark::view-transition-new(root) {
+[data-theme="dark"]::view-transition-new(root) {
   z-index: 1;
 }
 
 ::view-transition-new(root),
-.dark::view-transition-old(root) {
+[data-theme="dark"]::view-transition-old(root) {
   z-index: 9999;
-}
-
-::view-transition-new(root),
-::view-transition-old(root) {
-  animation: none;
 }
 
 .navbar__items--right > :last-child {

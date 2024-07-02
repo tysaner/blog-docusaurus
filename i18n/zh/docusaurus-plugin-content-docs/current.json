@@ -22,5 +22,17 @@
   "sidebar.tutorialSidebar.category.Tutorial - Extras": {
     "message": "Tutorial - Extras",
     "description": "The label for category Tutorial - Extras in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.前言": {
+    "message": "前言",
+    "description": "The label for category 前言 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.关于博客": {
+    "message": "关于博客",
+    "description": "The label for category 关于博客 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.英语": {
+    "message": "英语",
+    "description": "The label for category 英语 in sidebar tutorialSidebar"
   }
 }

@@ -4,8 +4,13 @@
 
 .title {
   font-size: 48px;
-  color: var(--ifm-color-primary);
+  /* color: var(--ifm-color-primary); */
+  color: transparent;
   font-weight: 700;
+  -webkit-background-clip: text;
+  background: var(--vp-home-hero-name-background);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 [data-theme="dark"] .title {
   color: var(--ifm-color-primary-dark);
@@ -75,14 +80,36 @@
   border-radius: 999px;
 }
 .img:hover {
-  transform: rotate(666turn);
+  transform: translate(-50%, -50%) rotate(666turn);
   transition: transform 59s 1s cubic-bezier(0.3, 0, 0.8, 1);
 }
+
+.btnContainer {
+  margin-top: 30px;
+  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 每行 3 列，每列占 1fr（fraction） */
+}
+.btn {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
 @media (max-width: 996px) {
   .wrapper {
     margin: 0 auto;
     text-align: center;
-    padding: 80px 0;
+    padding-top: 0;
+  }
+  .btnContainer {
+    gap: 25px;
+    grid-template-columns: none;
+    grid-template-rows: repeat(4, 1fr);
+    justify-content: center;
+  }
+  .btn {
+    padding-left: 32px;
+    padding-right: 32px;
   }
   .title {
     font-size: 48px;
