@@ -58,7 +58,7 @@ function index() {
               className={styles.btn}
               type="primary"
               onClick={() => {
-                history.push("/blog");
+                window.open("https://gitee.com/tangyudev/docusaurus");
               }}
             >
               博客源码
