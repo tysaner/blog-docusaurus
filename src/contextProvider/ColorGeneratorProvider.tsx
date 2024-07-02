@@ -100,13 +100,13 @@ function ColorGeneratorProvider({ children }) {
       transition.ready.then(() => {
         document.documentElement.animate(
           {
-            clipPath: colorState === "dark" ? clipPath.reverse() : clipPath,
+            clipPath: colorState === "dark" ? clipPath : clipPath.reverse(),
           },
           {
             duration: 300,
             easing: "ease-in",
             pseudoElement: `::view-transition-${
-              colorState === "dark" ? "old" : "new"
+              colorState === "dark" ? "new" : "old"
             }(root)`,
           }
         );
