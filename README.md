@@ -6,8 +6,6 @@
   <a href="http://www.wenwenblog.online/" target="_blank">wenwenblog</a>
 </h1>
 
-⚠️ Actively searching for contributors, if you want to help, please contact me on [discord](https://discord.gg/6fC2sjDU7w) ⚠️
-
 ### 技术栈
 
 + docusaurus
@@ -26,5 +24,3 @@
 + 自定义主题
 
 。。。待拓展
-
-
