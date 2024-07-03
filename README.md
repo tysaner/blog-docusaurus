@@ -1,41 +1,30 @@
-# Website
+<p align="center">
+  <img src="./static/img/docusaurus.png" width="300" height="300" alt="wenwenwuyu logo" />
+</p>
+<h1 align="center">
+  问问物语开源博客，基于docusaurus开源框架开发，可供源码部署自己的个人文档(博客)
+  <a href="http://www.wenwenblog.online/" target="_blank">wenwenblog</a>
+</h1>
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+⚠️ Actively searching for contributors, if you want to help, please contact me on [discord](https://discord.gg/6fC2sjDU7w) ⚠️
 
-### Installation
+### 技术栈
 
-```
-$ yarn
-```
++ docusaurus
++ react
++ color.js
++ antd
++ typed.js
++ lodash-es
++ react-icons
++ sass
 
-### Local Development
+### 所实现的功能
 
-```
-$ yarn start
-```
++ 结合Algolia实现全局搜索
++ 主题切换
++ 自定义主题
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+。。。待拓展
 
-### Build
 
-```
-$ yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
