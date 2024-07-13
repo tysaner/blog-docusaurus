@@ -9,9 +9,10 @@ sidebar_position: 1
 介绍如何在 Docusaurus 中去使用 Algolia 搜索我们的文章以及文章内的文字，让使用者能够在我们的 Docusaurus 博客文档中输入关键字找到自己想看到的文章。
 
 文章要已经发布到线上也就是部署在了我们的服务器，GitHub或者是国内阿里云 腾讯云等都可以。
-本章参考链接：
+:::info
+本文参考连接：[**WeiYun0912**](https://weiyun0912.github.io/Wei-Docusaurus/docs/Docusaurus/Algolia/#%E7%88%AC%E5%8F%96%E8%B3%87%E6%96%99%E4%B8%A6%E6%96%B0%E5%A2%9E%E8%87%B3-algolia)
+:::
 
-[**WeiYun0912**](https://weiyun0912.github.io/Wei-Docusaurus/docs/Docusaurus/Algolia/#%E7%88%AC%E5%8F%96%E8%B3%87%E6%96%99%E4%B8%A6%E6%96%B0%E5%A2%9E%E8%87%B3-algolia)
 
 
 

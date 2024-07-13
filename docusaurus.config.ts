@@ -92,7 +92,7 @@ const config: Config = {
           label: "文档",
         },
         { to: "/blog", label: "日志", position: "left" },
-        { type: "localeDropdown", position: "right" },
+        // { type: "localeDropdown", position: "right" },
         {
           href: "https://github.com/facebook/docusaurus",
           label: "GitHub",
@@ -107,7 +107,7 @@ const config: Config = {
           title: "文档",
           items: [
             {
-              label: "Intro",
+              label: "前言",
               to: "/docs/intro",
             },
           ],
