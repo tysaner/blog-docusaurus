@@ -38,7 +38,7 @@ jobs:
           cache: yarn
       - uses: webfactory/ssh-agent@v0.5.0
         with:
-          ssh-private-key: ${{ secrets.GH_PAGES_DEPLOY }}
+          ssh-private-key: ${{ secrets.TYSANER }}
       - name: doc
         env:
           USE_SSH: true
