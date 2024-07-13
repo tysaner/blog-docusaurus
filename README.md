@@ -6,6 +6,8 @@
   <a href="http://www.wenwenblog.online/" target="_blank">wenwenblog</a>
 </h1>
 
+![Static Badge](https://shields.io/badge/verison-v1.0.0-235c5c5c)
+
 ### 技术栈
 
 + docusaurus

@@ -154,3 +154,6 @@ const config: Config = {
 };
 
 export default config;
+
+// readme徽章生成器
+// https://shields.io/
