@@ -4,6 +4,7 @@ import useGlobalData from "@docusaurus/useGlobalData";
 import { useHistory } from "react-router-dom";
 import { Button } from "antd";
 import Link from "@docusaurus/Link";
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 function index() {
   useEffect(() => {
@@ -22,11 +23,7 @@ function index() {
         <div className={styles.logoContainer}>
           <div className={styles.logoBg}></div>
           <img
-            src={
-              require(process.env.NODE_ENV !== "production"
-                ? "@site/static/img/docusaurus.png"
-                : "@site/blog-docusaurus/img/docusaurus.png").default
-            }
+            src={useBaseUrl('/img/docusaurus.png')}
             className={styles.img}
             alt=""
           />
