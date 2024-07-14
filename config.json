@@ -1,10 +1,10 @@
 {
   "index_name": "dev_test",
   "start_urls": [
-    "http://www.wenwenblog.online/"
+    "https://tysaner.github.io/blog-docusaurus/"
   ],
   "sitemap_urls": [
-    "http://www.wenwenblog.online/sitemap.xml"
+    "https://tysaner.github.io/blog-docusaurus/sitemap.xml"
   ],
   "sitemap_alternate_links": true,
   "stop_urls": [
