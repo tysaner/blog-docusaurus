@@ -37,17 +37,14 @@ jobs:
         with:
           node-version: 18
           cache: yarn
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile --non-interactive
-      - name: Build
-        run: yarn build
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+      - uses: webfactory/ssh-agent@v0.5.0
         with:
-          # Upload entire repository
-          path: build
+          ssh-private-key: ${{ secrets.TYSANER }}
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v3
+        env:
+          USE_SSH: true
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "gh-actions"
+          yarn install --frozen-lockfile
+          yarn deploy
