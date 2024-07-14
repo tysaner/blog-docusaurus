@@ -57,7 +57,14 @@ const config: Config = {
   ],
   themeConfig: {
     // <meta name="msvalidate.01" content="70EFEC8BBB19270445964DF0B4F5C14D" />
-    metadata: [{name: 'msvalidate.01', content: '70EFEC8BBB19270445964DF0B4F5C14D'}],
+    metadata: [
+      { name: "msvalidate.01", content: "70EFEC8BBB19270445964DF0B4F5C14D" },
+      {
+        name: "google-site-verification",
+        content: "ADrc9cqP5sRVpKZESHivCZbLqhWgzp6bUtvpRbcoh98",
+      },
+    ],
+    // <meta name="google-site-verification" content="ADrc9cqP5sRVpKZESHivCZbLqhWgzp6bUtvpRbcoh98" />
     // 左侧菜单栏
     docs: {
       sidebar: {
