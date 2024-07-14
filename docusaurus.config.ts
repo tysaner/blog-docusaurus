@@ -86,6 +86,13 @@ const config: Config = {
       },
       items: [
         {
+          type: "html",
+          position: "left",
+          value: `<div style="display: flex;">
+            <img src="https://visitor-badge.laobi.icu/badge?page_id=tysaner.blog-docusaurus" alt="visitor badge" />
+          </div>`,
+        },
+        {
           type: "docSidebar",
           sidebarId: "tutorialSidebar",
           position: "left",

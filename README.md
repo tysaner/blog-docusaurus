@@ -7,6 +7,7 @@
 </h1>
 
 ![Static Badge](https://shields.io/badge/verison-v1.0.0-235c5c5c)
+![visitor badge](https://visitor-badge.laobi.icu/badge?page_id=tysaner.blog-docusaurus)
 
 ### 技术栈
 

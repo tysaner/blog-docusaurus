@@ -5,7 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start --no-open --port 4000",
-    "start:procuction": "env-cmd -f ./.env.production docusaurus start --no-open --port 4000",
+    "start:pro": "env-cmd -f ./.env.production docusaurus start --no-open --port 4000",
     "build": "docusaurus build",
     "build:production": "env-cmd -f ./.env.production docusaurus build",
     "swizzle": "docusaurus swizzle",
