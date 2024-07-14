@@ -1,7 +1,7 @@
 import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
-
+console.log(process.env.NODE_ENV !== "production");
 const config: Config = {
   title: "问问物语",
   tagline: "保持学习的态度是非常酷的",
@@ -10,7 +10,7 @@ const config: Config = {
   url: "https://tysaner.github.io",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: "/",
+  baseUrl: process.env.NODE_ENV === "production" ? "/blog-docusaurus/" : "/",
   trailingSlash: false,
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
