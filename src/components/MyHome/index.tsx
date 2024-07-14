@@ -22,7 +22,11 @@ function index() {
         <div className={styles.logoContainer}>
           <div className={styles.logoBg}></div>
           <img
-            src={require("@site/static/img/docusaurus.png").default}
+            src={
+              require(process.env.NODE_ENV !== "production"
+                ? "@site/static/img/docusaurus.png"
+                : "@site/blog-docusaurus/img/docusaurus.png").default
+            }
             className={styles.img}
             alt=""
           />
