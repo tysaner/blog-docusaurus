@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styles from "./index.module.css";
-import Logo from "@site/src/assets/images/docusaurus.png";
 import useGlobalData from "@docusaurus/useGlobalData";
 import { useHistory } from "react-router-dom";
-import Link from "@docusaurus/Link";
 import { Button } from "antd";
+import Link from "@docusaurus/Link";
 
 function index() {
   useEffect(() => {
@@ -17,18 +16,16 @@ function index() {
     };
   }, []);
 
-  const globalData = useGlobalData();
-  const [docs, setDocs] = useState<Record<string, any>>(
-    (globalData["docusaurus-plugin-content-docs"]?.default as any)
-      ?.versions?.[0].docs
-  );
-  const history = useHistory();
   return (
     <div className={styles.wrapper}>
       <div className={styles.head}>
         <div className={styles.logoContainer}>
           <div className={styles.logoBg}></div>
-          <img src={Logo} className={styles.img} alt="" />
+          <img
+            src={require("@site/static/img/docusaurus.png").default}
+            className={styles.img}
+            alt=""
+          />
         </div>
         <div>
           <div className={styles.textContainer}>
@@ -37,23 +34,14 @@ function index() {
             <h2 className={styles.description}>知识是进步的阶梯</h2>
           </div>
           <div className={styles.btnContainer}>
-            <Button
-              className={styles.btn}
-              onClick={() => {
-                history.push("/docs/intro");
-              }}
-              type="primary"
-            >
-              知识文档
-            </Button>
-            <Button
-              className={styles.btn}
-              onClick={() => {
-                history.push("/blog");
-              }}
-            >
-              我的日常
-            </Button>
+            <Link to={"/docs/intro"}>
+              <Button className={styles.btn} type="primary">
+                知识文档
+              </Button>
+            </Link>
+            <Link to={"/blog"}>
+              <Button className={styles.btn}>我的日常</Button>
+            </Link>
             <Button
               className={styles.btn}
               type="primary"
