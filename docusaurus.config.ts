@@ -80,9 +80,9 @@ const config: Config = {
     // Replace with your project's social card
     // 搜索
     algolia: {
-      apiKey: "d4c00b1f5479df70aa3b9f3c83fbe113",
-      indexName: "dev_test",
-      appId: "SB65ZZZGW6",
+      apiKey: "8f01158653461fe423d0c2ce3b94a600",
+      indexName: "docusaurus",
+      appId: "0TKU5NV54K",
     },
     image: "img/docusaurus-social-card.jpg",
     navbar: {
