@@ -27,9 +27,13 @@ const config: Config = {
     defaultLocale: "zh",
     locales: ["zh", "en"],
     localeConfigs: {
-      // 语言配置
+      zh: {
+        label: "中文", // 中文标签
+        htmlLang: "zh-Hans", // HTML 语言标签
+      },
       en: {
-        htmlLang: "en-gb",
+        label: "English", // 英文标签
+        htmlLang: "en-GB", // HTML 语言标签
       },
     },
   },
@@ -46,8 +50,13 @@ const config: Config = {
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
+          blogSidebarTitle: '我的日志',
+          blogTitle: '我的日志',
+          blogDescription: '这是我的技术博客',
+          blogSidebarCount: 'ALL',
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
         },
         theme: {
           customCss: "./src/css/custom.css",

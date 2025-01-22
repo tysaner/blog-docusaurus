@@ -18,10 +18,10 @@
   },
   "dependencies": {
     "@cmfcmf/docusaurus-search-local": "^1.2.0",
-    "@docusaurus/core": "3.4.0",
-    "@docusaurus/plugin-ideal-image": "^3.4.0",
-    "@docusaurus/preset-classic": "^3.4.0",
-    "@docusaurus/theme-search-algolia": "^3.4.0",
+    "@docusaurus/core": "^3.7.0",
+    "@docusaurus/plugin-ideal-image": "^3.7.0",
+    "@docusaurus/preset-classic": "^3.7.0",
+    "@docusaurus/theme-search-algolia": "^3.7.0",
     "@easyops-cn/docusaurus-search-local": "^0.44.2",
     "@mdx-js/react": "^3.0.0",
     "@types/color": "^3.0.6",
@@ -35,9 +35,9 @@
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.4.0",
-    "@docusaurus/tsconfig": "3.4.0",
-    "@docusaurus/types": "3.4.0",
+    "@docusaurus/module-type-aliases": "^3.7.0",
+    "@docusaurus/tsconfig": "^3.7.0",
+    "@docusaurus/types": "^3.7.0",
     "@types/lodash-es": "^4",
     "typescript": "~5.2.2"
   },
