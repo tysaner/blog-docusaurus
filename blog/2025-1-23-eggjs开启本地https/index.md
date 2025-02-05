@@ -29,5 +29,5 @@ ngrok config add-authtoken <token>
 ## 3.启动ngrok
 
 ````javascript
-ngrok https http://localhost:7001
+ngrok http http://localhost:7001
 ````
